@@ -1,6 +1,6 @@
 ALERT InstanceDown
   IF up == 0
 ALERT DiskFull
-  IF collectd_df_percent_bytes{type="free"} < 1
+  IF collectd_df_percent_bytes{df!~"^var-lib-docker-overlay-.*",type="free"} < 1
 ALERT DiskNearlyFull
   IF instance_df:collectd_df_percent_bytes:predict_linear3d{} < 0
