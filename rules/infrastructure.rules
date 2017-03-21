@@ -1,0 +1,2 @@
+instance_df:collectd_df_percent_bytes:predict_linear3d = predict_linear(collectd_df_percent_bytes{type="free"}[3d], 3 * 24 * 3600)
+instance_df:collectd_df_percent_bytes:predict_linear3h = predict_linear(collectd_df_percent_bytes{type="free"}[3h], 3 * 24 * 3600)
