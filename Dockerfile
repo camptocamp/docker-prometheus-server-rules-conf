@@ -1,7 +1,7 @@
 FROM alpine
 
-ADD /rules/*.rules /etc/prometheus-rules/
+ADD /rules/*.rules /rules/
 
-VOLUME ["/etc/prometheus-rules"]
+VOLUME ["/etc/prometheus"]
 
-ENTRYPOINT ["/bin/true"]
+ENTRYPOINT ["/bin/cp", "-a", "/rules", "/etc/prometheus"]
