@@ -1,4 +1,4 @@
-instance_df:collectd_df_percent_bytes:max_by_rancher_host = max(collectd_df_percent_bytes{df!~"^var-lib-docker-overlay-.*",df!=".r",type="free"}) by (rancher_host)
-instance_df:collectd_df_percent_inodes:max_by_rancher_host = max(collectd_df_percent_inodes{df!~"^var-lib-docker-overlay-.*",df!=".r",type="free"}) by (rancher_host)
-instance_df:collectd_df_percent_bytes:predict_linear3d = predict_linear(instance_df:collectd_df_percent_bytes:max_by_rancher_host[3d], 3 * 24 * 3600)
-instance_df:collectd_df_percent_inodes:predict_linear3d = predict_linear(instance_df:collectd_df_percent_inodes:max_by_rancher_host[3d], 3 * 24 * 3600)
+instance_df:collectd_df_percent_bytes:max_by_exported_instance = max(collectd_df_percent_bytes{df!~"^var-lib-docker-overlay-.*",df!=".r",type="free"}) by (exported_instance)
+instance_df:collectd_df_percent_inodes:max_by_exported_instance = max(collectd_df_percent_inodes{df!~"^var-lib-docker-overlay-.*",df!=".r",type="free"}) by (exported_instance)
+instance_df:collectd_df_percent_bytes:predict_linear3d = predict_linear(instance_df:collectd_df_percent_bytes:max_by_exported_instance[3d], 3 * 24 * 3600)
+instance_df:collectd_df_percent_inodes:predict_linear3d = predict_linear(instance_df:collectd_df_percent_inodes:max_by_exported_instance[3d], 3 * 24 * 3600)
