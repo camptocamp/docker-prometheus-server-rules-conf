@@ -7,4 +7,5 @@ RUN promtool check-rules /etc/prometheus/infra-server-rules/*.rules
 
 VOLUME ["/etc/prometheus/infra-server-rules/"]
 
-ENTRYPOINT ["/bin/cp", "-f", "/infra-server-rules.yml", "/etc/prometheus/conf.d/"]
+ENTRYPOINT ["/bin/mkdir", "-p", "/etc/prometheus/conf.d/"]
+CMD ["/bin/cp", "-f", "/infra-server-rules.yml", "/etc/prometheus/conf.d/"]
