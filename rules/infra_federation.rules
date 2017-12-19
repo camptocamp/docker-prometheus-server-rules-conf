@@ -1,0 +1,12 @@
+infra_federation:instance_df_bytes:predict_linear3d   = instance_df:collectd_df_percent_bytes:predict_linear3d
+infra_federation:instance_df_inodes:predict_linear3d  = instance_df:collectd_df_percent_inodes:predict_linear3d
+infra_federation:instance_df_bytes:percent            = collectd_df_percent_bytes
+infra_federation:instance_df_inodes:percent           = collectd_df_percent_inodes
+infra_federation:instance_cpu:percent                 = collectd_cpu_percent
+infra_federation:instance_memory:percent              = collectd_memory_percent
+infra_federation:instance_swap:io                     = collectd_swap_swap_io
+infra_federation:instance_load:shortterm              = collectd_load_shortterm
+infra_federation:instance_ntpd:time_offset            = collectd_ntpd_time_offset
+infra_federation:rancher                              = {job="metrics_rancher"}
+infra_federation:complicity                           = {exported_job="conplicity"}
+infra_federation:up                                   = up
