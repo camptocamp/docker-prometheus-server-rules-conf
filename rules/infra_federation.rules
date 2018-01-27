@@ -8,5 +8,9 @@ infra_federation:instance_swap:io                     = collectd_swap_swap_io
 infra_federation:instance_load:shortterm              = collectd_load_shortterm
 infra_federation:instance_ntpd:time_offset            = collectd_ntpd_time_offset
 infra_federation:rancher                              = {job="metrics_rancher",__name__=~"rancher_.+"}
-infra_federation:conplicity                           = {exported_job="conplicity",__name__=~"conplicity_.+"}
+infra_federation:conplicity:backupEndTime             = conplicity_backupEndTime
+infra_federation:conplicity:backupExitCode            = conplicity_backupExitCode
+infra_federation:conplicity:backupStartTime           = conplicity_backupStartTime
+infra_federation:conplicity:lastBackup                = conplicity_lastBackup
+infra_federation:conplicity:lastFullBackup            = conplicity_lastFullBackup
 infra_federation:up                                   = up
