@@ -7,7 +7,13 @@ infra_federation:instance_memory:percent              = collectd_memory_percent
 infra_federation:instance_swap:io                     = collectd_swap_swap_io
 infra_federation:instance_load:shortterm              = collectd_load_shortterm
 infra_federation:instance_ntpd:time_offset            = collectd_ntpd_time_offset
-infra_federation:rancher                              = {job="metrics_rancher",__name__=~"rancher_.+"}
+infra_federation:rancher:host_agent_state             = rancher_host_agent_state
+infra_federation:rancher:host_state                   = rancher_host_state
+infra_federation:rancher:service_health_status        = rancher_service_health_status
+infra_federation:rancher:service_state                = rancher_service_state
+infra_federation:rancher:service_scale                = rancher_service_scale
+infra_federation:rancher:stack_state                  = rancher_stack_state
+infra_federation:rancher:stack_health_status          = rancher_stack_health_status
 infra_federation:conplicity:backupEndTime             = conplicity_backupEndTime
 infra_federation:conplicity:backupExitCode            = conplicity_backupExitCode
 infra_federation:conplicity:backupStartTime           = conplicity_backupStartTime
