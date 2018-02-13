@@ -1,22 +1,51 @@
-infra_federation:instance_df_bytes:predict_linear3d   = instance_df:collectd_df_percent_bytes:predict_linear3d
-infra_federation:instance_df_inodes:predict_linear3d  = instance_df:collectd_df_percent_inodes:predict_linear3d
-infra_federation:instance_df_bytes:percent            = collectd_df_percent_bytes
-infra_federation:instance_df_inodes:percent           = collectd_df_percent_inodes
-infra_federation:instance_cpu:percent                 = collectd_cpu_percent
-infra_federation:instance_memory:percent              = collectd_memory_percent
-infra_federation:instance_swap:io                     = collectd_swap_swap_io
-infra_federation:instance_load:shortterm              = collectd_load_shortterm
-infra_federation:instance_ntpd:time_offset            = collectd_ntpd_time_offset
-infra_federation:rancher:host_agent_state             = rancher_host_agent_state
-infra_federation:rancher:host_state                   = rancher_host_state
-infra_federation:rancher:service_health_status        = rancher_service_health_status
-infra_federation:rancher:service_state                = rancher_service_state
-infra_federation:rancher:service_scale                = rancher_service_scale
-infra_federation:rancher:stack_state                  = rancher_stack_state
-infra_federation:rancher:stack_health_status          = rancher_stack_health_status
-infra_federation:conplicity:backupEndTime             = conplicity_backupEndTime
-infra_federation:conplicity:backupExitCode            = conplicity_backupExitCode
-infra_federation:conplicity:backupStartTime           = conplicity_backupStartTime
-infra_federation:conplicity:lastBackup                = conplicity_lastBackup
-infra_federation:conplicity:lastFullBackup            = conplicity_lastFullBackup
-infra_federation:up                                   = up
+groups:
+- name: instance
+  rules:
+  - record: infra_federation:instance_df_bytes:predict_linear3d
+    expr: instance_df:collectd_df_percent_bytes:predict_linear3d
+  - record: infra_federation:instance_df_inodes:predict_linear3d
+    expr: instance_df:collectd_df_percent_inodes:predict_linear3d
+  - record: infra_federation:instance_df_bytes:percent
+    expr: collectd_df_percent_bytes
+  - record: infra_federation:instance_df_inodes:percent
+    expr: collectd_df_percent_inodes
+  - record: infra_federation:instance_cpu:percent
+    expr: collectd_cpu_percent
+  - record: infra_federation:instance_memory:percent
+    expr: collectd_memory_percent
+  - record: infra_federation:instance_swap:io
+    expr: collectd_swap_swap_io
+  - record: infra_federation:instance_load:shortterm
+    expr: collectd_load_shortterm
+  - record: infra_federation:instance_ntpd:time_offset
+    expr: collectd_ntpd_time_offset
+- name: rancher
+  rules:
+  - record: infra_federation:rancher:host_agent_state
+    expr: rancher_host_agent_state
+  - record: infra_federation:rancher:host_state
+    expr: rancher_host_state
+  - record: infra_federation:rancher:service_health_status
+    expr: rancher_service_health_status
+  - record: infra_federation:rancher:service_state
+    expr: rancher_service_state
+  - record: infra_federation:rancher:service_scale
+    expr: rancher_service_scale
+  - record: infra_federation:rancher:stack_state
+    expr: rancher_stack_state
+  - record: infra_federation:rancher:stack_health_status
+    expr: rancher_stack_health_status
+- name: conplicity
+  rules:
+  - record: infra_federation:conplicity:backupEndTime
+    expr: conplicity_backupEndTime
+  - record: infra_federation:conplicity:backupExitCode
+    expr: conplicity_backupExitCode
+  - record: infra_federation:conplicity:backupStartTime
+    expr: conplicity_backupStartTime
+  - record: infra_federation:conplicity:lastBackup
+    expr: conplicity_lastBackup
+  - record: infra_federation:conplicity:lastFullBackup
+    expr: conplicity_lastFullBackup
+  - record: infra_federation:up
+    expr: up
