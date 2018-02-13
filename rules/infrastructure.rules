@@ -1,4 +1,11 @@
-instance_df:collectd_df_percent_bytes:max_by_exported_instance_df = max(collectd_df_percent_bytes{df!~"^var-lib-docker-overlay.*",df!=".r",type="free"}) by (exported_instance, df)
-instance_df:collectd_df_percent_inodes:max_by_exported_instance_df = max(collectd_df_percent_inodes{df!~"^var-lib-docker-overlay.*",df!=".r",type="free"}) by (exported_instance, df)
-instance_df:collectd_df_percent_bytes:predict_linear3d = predict_linear(instance_df:collectd_df_percent_bytes:max_by_exported_instance_df[3d], 3 * 24 * 3600)
-instance_df:collectd_df_percent_inodes:predict_linear3d = predict_linear(instance_df:collectd_df_percent_inodes:max_by_exported_instance_df[3d], 3 * 24 * 3600)
+groups:
+- name: instance
+  rules:
+  - record: instance_df:collectd_df_percent_bytes:max_by_exported_instance_df
+    expr: max(collectd_df_percent_bytes{df!~"^var-lib-docker-overlay.*",df!=".r",type="free"}) by (exported_instance, df)
+  - record: instance_df:collectd_df_percent_inodes:max_by_exported_instance_df
+    expr: max(collectd_df_percent_inodes{df!~"^var-lib-docker-overlay.*",df!=".r",type="free"}) by (exported_instance, df)
+  - record: instance_df:collectd_df_percent_bytes:predict_linear3d
+    expr: predict_linear(instance_df:collectd_df_percent_bytes:max_by_exported_instance_df[3d], 3 * 24 * 3600)
+  - record: instance_df:collectd_df_percent_inodes:predict_linear3d
+    expr: predict_linear(instance_df:collectd_df_percent_inodes:max_by_exported_instance_df[3d], 3 * 24 * 3600)

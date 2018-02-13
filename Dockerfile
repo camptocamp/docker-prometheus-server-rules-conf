@@ -1,10 +1,10 @@
-FROM prom/prometheus:v1.8.2
+FROM prom/prometheus:v2.1.0
 
 ADD /rules/*.rules /infra-server-rules/
 ADD /infra-server-rules.yml /
 COPY /docker-entrypoint.sh /
 
-RUN promtool check-rules /infra-server-rules/*.rules
+RUN promtool check rules /infra-server-rules/*.rules
 
 VOLUME ["/infra-server-rules/"]
 
