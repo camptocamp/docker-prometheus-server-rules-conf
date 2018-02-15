@@ -1,5 +1,7 @@
 FROM prom/prometheus:v2.1.0
 
+USER root
+
 ADD /rules/*.rules /infra-server-rules/
 ADD /infra-server-rules.yml /
 COPY /docker-entrypoint.sh /
