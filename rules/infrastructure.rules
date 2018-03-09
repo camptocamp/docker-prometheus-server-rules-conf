@@ -2,9 +2,9 @@ groups:
 - name: instance
   rules:
   - record: instance_df:collectd_df_percent_bytes:max_by_host_df
-    expr: max(collectd_df_percent_bytes{df!~"^var-lib-docker-overlay.*",df!=".r",type="free"}) by (host, df)
+    expr: max(collectd_df_percent_bytes{df!~"^var-lib-docker-overlay.*",df!=".r",type="free"}) by (host, df, project, line)
   - record: instance_df:collectd_df_percent_inodes:max_by_host_df
-    expr: max(collectd_df_percent_inodes{df!~"^var-lib-docker-overlay.*",df!=".r",type="free"}) by (host, df)
+    expr: max(collectd_df_percent_inodes{df!~"^var-lib-docker-overlay.*",df!=".r",type="free"}) by (host, df, project, line)
   - record: instance_df:collectd_df_percent_bytes:predict_linear3d
     expr: predict_linear(instance_df:collectd_df_percent_bytes:max_by_host_df[3d], 3 * 24 * 3600)
   - record: instance_df:collectd_df_percent_inodes:predict_linear3d
