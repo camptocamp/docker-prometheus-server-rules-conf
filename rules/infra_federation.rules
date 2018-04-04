@@ -49,3 +49,7 @@ groups:
     expr: conplicity_lastFullBackup
   - record: infra_federation:up
     expr: up
+- name: alerting
+  rules:
+  - record: infra_federation:alerts
+    expr: ALERTS
