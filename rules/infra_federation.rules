@@ -17,8 +17,28 @@ groups:
     expr: collectd_swap_swap_io
   - record: infra_federation:instance_load:shortterm
     expr: collectd_load_shortterm
+  - record: infra_federation:instance_load:midterm
+    expr: collectd_load_midterm
+  - record: infra_federation:instance_load:longterm
+    expr: collectd_load_longterm
   - record: infra_federation:instance_ntpd:time_offset
     expr: collectd_ntpd_time_offset
+  - record: infra_federation:instance_cpu:mot1d
+    expr: max_over_time(collectd_load_longterm[1d])
+- name: network
+  rules:
+  - record: infra_federation:instance_network:bytes_tx
+    expr: collectd_interface_if_octets_tx_total
+  - record: infra_federation:instance_network:bytes_rx
+    expr: collectd_interface_if_octets_rx_total
+  - record: infra_federation:instance_network:errors_tx
+    expr: collectd_interface_if_errors_tx_total
+  - record: infra_federation:instance_network:errors_rx
+    expr: collectd_interface_if_errors_rx_total
+  - record: infra_federation:instance_network:dropped_tx
+    expr: collectd_interface_if_dropped_tx_total
+  - record: infra_federation:instance_network:dropped_rx
+    expr: collectd_interface_if_dropped_rx_total
 - name: rancher
   rules:
   - record: infra_federation:rancher:host_agent_state
