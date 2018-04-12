@@ -19,7 +19,7 @@ groups:
 
   - alert: CPUUsage
     expr: >
-      sum by (host, project, line) (collectd_load_longterm) > (sum by (host, project, line) (avg_over_time(collectd_load_longterm[2w])) + sum by (host, project, line) (stddev_over_time(collectd_load_longterm[2w])))
+      infra_federation:instance_load:longterm > (avg_over_time(infra_federation:instance_cpu:mot1d[2w]) + stddev_over_time(infra_federation:instance_cpu:mot1d[2w]))
     for: 15m
 
   - alert: HostDown
