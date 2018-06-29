@@ -25,6 +25,8 @@ groups:
     expr: collectd_ntpd_time_offset
   - record: infra_federation:instance_cpu:mot1d
     expr: max_over_time(collectd_load_longterm[1d])
+  - record: infra_federation:up
+    expr: up
 - name: network
   rules:
   - record: infra_federation:instance_network:bytes_tx
@@ -67,8 +69,18 @@ groups:
     expr: conplicity_lastBackup
   - record: infra_federation:conplicity:lastFullBackup
     expr: conplicity_lastFullBackup
-  - record: infra_federation:up
-    expr: up
+- name: bivac
+  rules:
+  - record: infra_federation:bivac:backupEndTime
+    expr: bivac_backupEndTime
+  - record: infra_federation:bivac:backupExitCode
+    expr: bivac_backupExitCode
+  - record: infra_federation:bivac:backupStartTime
+    expr: bivac_backupStartTime
+  - record: infra_federation:bivac:lastBackup
+    expr: bivac_lastBackup
+  - record: infra_federation:bivac:lastFullBackup
+    expr: bivac_lastFullBackup
 - name: alerting
   rules:
   - record: infra_federation:alerts
