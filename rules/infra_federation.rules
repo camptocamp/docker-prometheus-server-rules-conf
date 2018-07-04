@@ -77,6 +77,8 @@ groups:
     expr: bivac_backupExitCode
   - record: infra_federation:bivac:backupStartTime
     expr: bivac_backupStartTime
+  - record: infra_federation:bivac:verifyExitCode
+    expr: bivac_verifyExitCode
   - record: infra_federation:bivac:lastBackup
     expr: bivac_lastBackup
   - record: infra_federation:bivac:lastFullBackup
