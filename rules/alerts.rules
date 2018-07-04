@@ -40,11 +40,13 @@ groups:
   - alert: BackupError
     expr: >
       conplicity_backupExitCode{} > 0 or
+      bivac_backupExitCode{} > 0 or
       rclone_errors > 0
 
   - alert: BackupOutdated
     expr: >
       time() - conplicity_lastBackup{} > 25 * 3600 or
+      time() - bivac_backupEndTime{} > 25 * 3600 or
       time() - rclone_end_time > 25 * 3600
 
   - alert: MemoryUsage
