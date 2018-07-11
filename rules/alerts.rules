@@ -2,13 +2,13 @@ groups:
 - name: alerting
   rules:
   - alert: DiskFull
-    expr: collectd_df_percent_bytes{df!~"^var-lib-docker-overlay.*",type="free"} < 1
+    expr: collectd_df_percent_bytes{df!~"^var-lib-docker-overlay.*|.*snap.*",type="free"} < 1
 
   - alert: DiskNearlyFull
     expr: >
       max((instance_df:collectd_df_percent_bytes:predict_linear3d < -1 and
       instance_df:collectd_df_percent_bytes:predict_linear3d > -50) unless
-      collectd_df_percent_bytes{df!~"^var-lib-docker-overlay.*",type="free"} < 1) by (host, project, line, df, exported_instance, rancher_site, rancher_environment)
+      collectd_df_percent_bytes{df!~"^var-lib-docker-overlay.*|.*snap.*",type="free"} < 1) by (host, project, line, df, exported_instance, rancher_site, rancher_environment)
 
   - alert: ContainerDown
     expr: >
