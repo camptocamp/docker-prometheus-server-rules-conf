@@ -30,7 +30,7 @@ groups:
     expr: collectd_postgresql_gauge{type=~"replication_slots.*"} == 0
 
   - alert: PingdomDown
-    expr: avg_over_time(pingdom_check_status{paused="false"}[10m]) > 0.1
+    expr: pingdom_check_status{paused="false"} > 0
 
   - alert: BackupError
     expr: >
