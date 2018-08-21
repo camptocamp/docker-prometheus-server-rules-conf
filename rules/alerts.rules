@@ -29,9 +29,6 @@ groups:
   - alert: PGReplicaActive
     expr: collectd_postgresql_gauge{type=~"replication_slots.*"} == 0
 
-  - alert: PingdomDown
-    expr: pingdom_check_status{paused="false"} > 0
-
   - alert: BackupError
     expr: >
       conplicity_backupExitCode{} > 0 or
