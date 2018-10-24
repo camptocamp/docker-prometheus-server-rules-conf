@@ -39,7 +39,9 @@ groups:
     expr: >
       time() - conplicity_lastBackup{} > 25 * 3600 or
       time() - bivac_backupEndTime{} > 25 * 3600 or
-      time() - rclone_end_time > 25 * 3600
+      time() - rclone_end_time > 25 * 3600 or
+      time() - bivac_lastBackup{} > 25 * 3600 or
+      time() - bivac_oldestBackup{} > 35 * 24 * 3600
 
   - alert: MemoryUsage
     expr: >
