@@ -83,6 +83,8 @@ groups:
     expr: bivac_lastBackup
   - record: infra_federation:bivac:lastFullBackup
     expr: bivac_lastFullBackup
+  - record: infra_federation:bivac:oldestBackup
+    expr: bivac_oldestBackup
 - name: alerting
   rules:
   - record: infra_federation:alerts
